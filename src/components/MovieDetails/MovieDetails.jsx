@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react"
-import { useParams, NavLink, useMatch } from "react-router-dom"
+import { useParams, NavLink } from "react-router-dom"
 
     
 
@@ -38,8 +38,8 @@ fetchhMovieDetails(movieId).then(setMovie)
                     <h3>Additional information</h3>
                     <ul>
 
-                        <li><NavLink to={`/movies/${movieId}/cast`}>Cast</NavLink></li>
-                        <li><NavLink to ={`/movies/${movieId}/reviews`}>Reviews</NavLink></li>
+                        <li><NavLink to='cast'>Cast</NavLink></li>
+                        <li><NavLink to ='reviews'>Reviews</NavLink></li>
                     </ul>
                 </div>
             
