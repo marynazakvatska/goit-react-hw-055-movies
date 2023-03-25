@@ -7,7 +7,8 @@ import MovieDetails from "./MovieDetails/MovieDetails";
 /* import Home from "path/to/pages/Home";
 import Movies from "path/to/pages/Movies"; */
 import styled from "styled-components";
-import fetchAllMovies from "./fetchApi";
+import { Layout } from "./Layout";
+
 
 const StyledLink = styled(NavLink)`
   color: black;
@@ -31,19 +32,21 @@ export const App = () => {
       }}
     >
 
-       <nav>
+      {/*  <nav>
         <NavLink to="/">Home</NavLink>
         <NavLink to="/movies">Movies</NavLink>
        
-      </nav>
+      </nav> */}
 
-         <Routes>
+      <Routes>
+        <Route path="/" element={<Layout />}> 
         <Route path="/" element={<Home />} />
         <Route path="/movies" element={<Movies />} />
 <Route path="/movies/:movieId" element={<MovieDetails />} >
         <Route path="cast" element={<Cast />} /> 
           <Route path="reviews" element={<Reviews />} /> 
-      </Route>    
+          </Route>    
+          </Route>
         </Routes>
     </div>
   );
