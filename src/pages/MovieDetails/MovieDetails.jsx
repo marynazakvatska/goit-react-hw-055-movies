@@ -17,7 +17,7 @@ fetchhMovieDetails(movieId).then(data => setMovie(data))
 
     return (
         <>
-            <Button> <Link  to={backButton.current} >Go back</Link> </Button>
+            <Button> <Link  to={backButton.current}>Go back</Link> </Button>
         
             {movie && <div>
                  <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.original_title} />

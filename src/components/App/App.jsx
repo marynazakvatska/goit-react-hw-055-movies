@@ -1,11 +1,7 @@
 import { lazy } from "react";
 import { Routes, Route, NavLink } from "react-router-dom";
 import { Apps } from "./App.styled";
-
-/* import Cast from "./Cast/Cast"; */
-/* import Reviews from "./Reviews/Reviews"; */
-/* import MovieDetails from "../pages/MovieDetails/MovieDetails"; */
-import NotFound from "../NotFound/NotFound";
+/* import NotFound from "../NotFound/NotFound"; */
 import styled from "styled-components";
 import { Layout } from "../Layout/Layout";
 
@@ -29,7 +25,6 @@ export const App = () => {
         <Route path="cast" element={<Cast />} /> 
           <Route path="reviews" element={<Reviews />} />  
         </Route> 
-           <Route path="*" element={<NotFound />} />
           </Route>
         </Routes>
     </Apps>
