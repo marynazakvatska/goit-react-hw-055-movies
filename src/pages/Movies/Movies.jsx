@@ -12,7 +12,7 @@ const [searchParams, setSearchParams] = useSearchParams();
   const movieName = searchParams.get("movieName") ?? "";
     console.log(movieName) 
 
- fetchSearchMovies(movieName).then(data => console.log(data)) 
+/*  fetchSearchMovies(movieName).then(data => console.log(data))  */
     
 
 useEffect(() => {
