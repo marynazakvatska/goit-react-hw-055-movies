@@ -9,10 +9,6 @@ export default function Cast() {
       const { movieId } = useParams();
     const [actors, setActors] = useState([]);
 
-console.log(movieId)
-
-    /* console.log(fetchhMovieCredits(movieId)) */
-    fetchhMovieCredits(movieId).then(data=>console.log(data.cast))
 
     useEffect(() => {
        
@@ -23,10 +19,7 @@ fetchhMovieCredits(movieId).then(data=>data.cast).then(setActors)
 
     return (
         <>
-           {/*  if(actors === []) {
-             (<p>no images</p>)  
-            } */}
-            {actors && (
+            {actors.length>0 ? (
                 <ul>
                     {actors.map(actor => (
                         <li key={actor.id}>
@@ -38,7 +31,7 @@ fetchhMovieCredits(movieId).then(data=>data.cast).then(setActors)
                         </li>
                     ))}
                 </ul>
-        )}
+        ) : <p>"There is not images of the actors"</p>}
         </>
     )
 }

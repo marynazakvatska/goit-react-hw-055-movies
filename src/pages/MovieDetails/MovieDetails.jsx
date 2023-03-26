@@ -1,5 +1,5 @@
-import { useState, useEffect } from "react"
-import { useParams, NavLink, useLocation } from "react-router-dom"
+import { useState, useEffect, useRef } from "react"
+import { useParams, NavLink, useLocation, Link } from "react-router-dom"
 import { Outlet } from "react-router-dom";
 import {fetchhMovieDetails} from "components/fetchApi"
 
@@ -7,12 +7,8 @@ export default function MovieDetails() {
     const { movieId } = useParams();
     const [movie, setMovie] = useState(null);
     const location = useLocation();
+    const backButton = useRef(location.state?.from ?? "/")
 
-
-    console.log(location)
-function onBack() {
-/*     history.push("/"); */
-  }
 
     useEffect(() => {
 fetchhMovieDetails(movieId).then(data => setMovie(data))
@@ -21,7 +17,8 @@ fetchhMovieDetails(movieId).then(data => setMovie(data))
 
     return (
         <>
-            <button type="button" /* state={{from: location}} */ onClick={onBack}>Go back</button> 
+            <button> <Link  to={backButton.current} >Go back</Link> </button>
+        
             {movie && <div>
                  <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.original_title} />
                 <h1>{ movie.original_title}</h1>

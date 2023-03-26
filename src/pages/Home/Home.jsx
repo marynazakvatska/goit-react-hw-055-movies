@@ -10,12 +10,11 @@ export default function Home() {
     const location = useLocation();
     const [movies, setMovies] = useState(null);
 
-console.log(location)
+ 
+    
     useEffect(() => {
-        fetchAllMovies().then(data => {
-            console.log(data)
-            return data.results
-        }).then(setMovies)
+        fetchAllMovies().then(data => data.results
+        ).then(setMovies)
     }, [])
 
     return (
@@ -23,8 +22,8 @@ console.log(location)
             <Title>Trending today</Title> 
             <ul>
                  {movies && movies.map(movie => <List key={movie.id}>
-                     {movie.original_title ? <Link to={`/movies/${movie.id}`}>{movie.original_title}</Link> :
-                         <Link to={`/movies/${movie.id}`}>{movie.name}</Link>}
+                     {movie.original_title ? <Link to={`/movies/${movie.id}`} state={{from: location}}>{movie.original_title}</Link> :
+                         <Link to={`/movies/${movie.id}` } state={{from: location}}>{movie.name}</Link>}
                 </List>)}
             </ul>
            

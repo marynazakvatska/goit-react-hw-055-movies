@@ -10,13 +10,8 @@ export default function Reviews() {
       const { movieId } = useParams();
     const [reviews, setReviews] = useState([]);
 
-console.log(movieId)
 
-   
-  /*   fetchhMovieReviews(movieId).then(data=>console.log(data.results)) */
-
-    useEffect(() => {
-       
+    useEffect(() => {   
 fetchhMovieReviews(movieId).then(data=>data.results).then(setReviews)
     }, [movieId])
   

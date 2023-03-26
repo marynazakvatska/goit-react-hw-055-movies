@@ -1,13 +1,11 @@
 import {  useSearchParams, useLocation, Outlet, Link} from "react-router-dom";
 import { fetchSearchMovies } from "components/fetchApi";
-import { useState, useEffect} from "react";
+import { useState, useEffect, useParams} from "react";
 
 
 const Movies = () => {
-  
-   /*   const location = useLocation(); */
     const [movies, setMovies] = useState([]);
-   
+ 
 const [searchParams, setSearchParams] = useSearchParams();
   const movieName = searchParams.get("movieName") ?? "";
 
@@ -40,10 +38,7 @@ useEffect(() => {
               {movies.map(oneMovie => (
                   <li key={oneMovie.id}>
                      
-                    <Link >
-                          <p>{oneMovie.title}</p>
-                          
-                      </Link> 
+                    <Link to={`/movies/${oneMovie.id}`}>{oneMovie.title}</Link> 
                   </li>
               ))}
           </ul>)}
