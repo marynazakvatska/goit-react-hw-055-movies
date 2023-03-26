@@ -1,30 +1,27 @@
 import { useState, useEffect } from "react"
-import { useParams, NavLink, Routes } from "react-router-dom"
-/* import { Route } from "react-router-dom";
-import Cast from "components/Cast/Cast";
-import Reviews from "components/Reviews/Reviews"; */
+import { useParams, NavLink, useLocation } from "react-router-dom"
 import { Outlet } from "react-router-dom";
-
-
 import {fetchhMovieDetails} from "components/fetchApi"
 
 export default function MovieDetails() {
     const { movieId } = useParams();
     const [movie, setMovie] = useState(null);
-    
+    const location = useLocation();
 
+
+    console.log(location)
 function onBack() {
 /*     history.push("/"); */
   }
 
     useEffect(() => {
-fetchhMovieDetails(movieId).then(setMovie)
+fetchhMovieDetails(movieId).then(data => setMovie(data))
     }, [movieId])
 
 
     return (
         <>
-            <button type="button" onClick={onBack}>Go back</button> 
+            <button type="button" /* state={{from: location}} */ onClick={onBack}>Go back</button> 
             {movie && <div>
                  <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.original_title} />
                 <h1>{ movie.original_title}</h1>

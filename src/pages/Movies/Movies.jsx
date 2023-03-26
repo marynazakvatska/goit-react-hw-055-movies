@@ -10,10 +10,7 @@ const Movies = () => {
    
 const [searchParams, setSearchParams] = useSearchParams();
   const movieName = searchParams.get("movieName") ?? "";
-    console.log(movieName) 
 
-/*  fetchSearchMovies(movieName).then(data => console.log(data))  */
-    
 
 useEffect(() => {
     fetchSearchMovies(movieName).then(setMovies)
@@ -24,7 +21,7 @@ useEffect(() => {
         e.preventDefault();
         const form = e.currentTarget;
         if (e.target.value === '') {
-            return setSearchParams({})
+            return
         }
         setSearchParams({ movieName: form.elements.name.value }) 
          form.reset();
@@ -36,22 +33,20 @@ useEffect(() => {
     <form onSubmit={handleSubmit}>
             <input
         type="text" name="name"
-               /*    value={movieName} */
-       /*  onChange={e => setSearchParams({ movieName:e.target.value })}  */
           />
               <button type="submit">Search</button>
               </form>
-         {/*  { movies && (<ul>
-              {movies.map(movi => (
-                  <li key={movi.id}>
-                       <p>{movi.name}</p>
-                    <Link to="movies/:movieId">
-                        
-                          <p>{movi.name}</p>
+          { movies && (<ul>
+              {movies.map(oneMovie => (
+                  <li key={oneMovie.id}>
+                     
+                    <Link >
+                          <p>{oneMovie.title}</p>
+                          
                       </Link> 
                   </li>
               ))}
-          </ul>)} */}
+          </ul>)}
          
     </div>
   );

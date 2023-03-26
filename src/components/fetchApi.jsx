@@ -16,10 +16,11 @@ export function fetchAllMovies() {
 export function fetchSearchMovies(movie) {  //список найпопулярніших фільмів на сьогодні
   return (
     fetch(
-      `https://api.themoviedb.org/3/search/${movie}?api_key=${KEY}&language=en-US&page=1&include_adult=false`
+      `https://api.themoviedb.org/3/search/movie?api_key=${KEY}&query=${movie}`
     )
-       .then(response => response.json())
-  );
+      .then(response => response.json())
+    .then(data =>data.results)
+)
 }
 
 
