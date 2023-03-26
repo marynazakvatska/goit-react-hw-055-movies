@@ -1,7 +1,10 @@
 import { useState, useEffect } from "react"
-import { useParams, NavLink } from "react-router-dom"
+import { useParams, NavLink, Routes } from "react-router-dom"
+/* import { Route } from "react-router-dom";
+import Cast from "components/Cast/Cast";
+import Reviews from "components/Reviews/Reviews"; */
+import { Outlet } from "react-router-dom";
 
-    
 
 import {fetchhMovieDetails} from "components/fetchApi"
 
@@ -41,6 +44,8 @@ fetchhMovieDetails(movieId).then(setMovie)
                         <li><NavLink to='cast'>Cast</NavLink></li>
                         <li><NavLink to ='reviews'>Reviews</NavLink></li>
                     </ul>
+<Outlet />
+       
                 </div>
             
             </div>

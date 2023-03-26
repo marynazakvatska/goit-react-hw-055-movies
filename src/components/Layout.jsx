@@ -2,6 +2,8 @@ import { NavLink, Outlet } from "react-router-dom";
 
 export const Layout = () => {
     return (
+       <div>
+         <header>
         <div>
             <ul>
                 <li>
@@ -10,11 +12,13 @@ export const Layout = () => {
                 <li>
 <NavLink to="/movies">Movies</NavLink>
                 </li>
-            </ul>
+                </ul>
+                 </div>
+                </header>
             <main>
                <Outlet /> 
             </main>
-        </div>
+       </div>
     )
 }
 

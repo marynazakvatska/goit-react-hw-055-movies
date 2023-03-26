@@ -1,4 +1,4 @@
-import { Link, useRouteMatch } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useState, useEffect } from "react"
 import { fetchAllMovies } from "components/fetchApi"
 import { List, Title } from "./Home.styled"; 
