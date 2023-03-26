@@ -1,8 +1,8 @@
 import { lazy } from "react";
-import { Routes, Route, NavLink } from "react-router-dom";
+import { Routes, Route} from "react-router-dom";
 import { Apps } from "./App.styled";
 /* import NotFound from "../NotFound/NotFound"; */
-import styled from "styled-components";
+
 import { Layout } from "../Layout/Layout";
 
 

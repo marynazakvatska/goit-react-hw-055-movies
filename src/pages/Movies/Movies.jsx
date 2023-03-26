@@ -1,6 +1,6 @@
-import {  useSearchParams, useLocation, Outlet, Link} from "react-router-dom";
+import {  useSearchParams, Link} from "react-router-dom";
 import { fetchSearchMovies } from "components/fetchApi";
-import { useState, useEffect, useParams } from "react";
+import { useState, useEffect } from "react";
 import { Button, Input } from "./Movies.styled";
 
 
