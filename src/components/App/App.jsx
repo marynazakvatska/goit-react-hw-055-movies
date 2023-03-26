@@ -1,7 +1,6 @@
 import { lazy } from "react";
 import { Routes, Route} from "react-router-dom";
 import { Apps } from "./App.styled";
-/* import NotFound from "../NotFound/NotFound"; */
 
 import { Layout } from "../Layout/Layout";
 
