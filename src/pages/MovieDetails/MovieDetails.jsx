@@ -1,7 +1,7 @@
-import { useState, useEffect, useRef } from "react"
-import { useParams, NavLink, useLocation, Link } from "react-router-dom"
-import { Outlet } from "react-router-dom";
-import {fetchhMovieDetails} from "components/fetchApi"
+import { useState, useEffect, useRef, Suspense } from "react"
+import { useParams, NavLink, useLocation, Link, Outlet } from "react-router-dom"
+import { fetchhMovieDetails } from "components/fetchApi"
+import { Button } from "./MovieDetails.styled";
 
 export default function MovieDetails() {
     const { movieId } = useParams();
@@ -17,7 +17,7 @@ fetchhMovieDetails(movieId).then(data => setMovie(data))
 
     return (
         <>
-            <button> <Link  to={backButton.current} >Go back</Link> </button>
+            <Button> <Link  to={backButton.current} >Go back</Link> </Button>
         
             {movie && <div>
                  <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.original_title} />
@@ -38,8 +38,9 @@ fetchhMovieDetails(movieId).then(data => setMovie(data))
                         <li><NavLink to='cast'>Cast</NavLink></li>
                         <li><NavLink to ='reviews'>Reviews</NavLink></li>
                     </ul>
+             <Suspense>
 <Outlet />
-       
+       </Suspense>       
                 </div>
             
             </div>

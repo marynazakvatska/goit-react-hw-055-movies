@@ -31,7 +31,7 @@ fetchhMovieCredits(movieId).then(data=>data.cast).then(setActors)
                         </li>
                     ))}
                 </ul>
-        ) : <p>"There is not images of the actors"</p>}
+        ) : <p>There is not images of the actors</p>}
         </>
     )
 }

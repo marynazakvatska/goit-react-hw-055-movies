@@ -1,6 +1,7 @@
 import {  useSearchParams, useLocation, Outlet, Link} from "react-router-dom";
 import { fetchSearchMovies } from "components/fetchApi";
-import { useState, useEffect, useParams} from "react";
+import { useState, useEffect, useParams } from "react";
+import { Button, Input } from "./Movies.styled";
 
 
 const Movies = () => {
@@ -29,10 +30,10 @@ useEffect(() => {
   return (
     <div>
     <form onSubmit={handleSubmit}>
-            <input
+            <Input
         type="text" name="name"
           />
-              <button type="submit">Search</button>
+              <Button type="submit">Search</Button>
               </form>
           { movies && (<ul>
               {movies.map(oneMovie => (
